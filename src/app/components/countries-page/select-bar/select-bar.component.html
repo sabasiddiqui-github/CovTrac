@@ -1,0 +1,12 @@
+
+  <div class="mx-auto">
+    <div class="form-group col-lg-5 mx-auto" aria-label="Default select example">
+      <label for="c">Select Country</label>
+      
+        <select name=" " class="form-control " id="c" #input (change))="updateValue(input.value)" >
+          <option value="{{conn}}" *ngFor="let conn of data">{{conn}}</option>
+        </select>
+    </div>
+    
+  </div>
+  

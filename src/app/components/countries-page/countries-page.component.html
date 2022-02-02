@@ -1,0 +1,84 @@
+<div class="container">
+  <div class = "jumbotron bg-white text-center">
+    <br>
+    <h1 class="display-3 font-weight-bold text-dark">CovTrac: Covid-19 Tracker</h1>
+    <h5 class="font-weight-bold text-secondary">Showing Countrywide Statistics</h5>
+  </div>
+  <div class="mx-auto">
+    <div class="form-group col-lg-5 mx-auto" aria-label="Default select example">
+      <label for="c">Select Country</label>
+      
+        <select name=" " class="form-control " id="c" #input (change)="updateValue(input.value)" >
+          <option value="{{conn}}" *ngFor="let conn of countries">{{conn}}</option>
+        </select>
+    </div>
+    
+  
+  
+  <hr>
+  <div class="row">
+    <div class="col-sm-4">
+      <div class="card border border-primary text-center">
+        <div class="card-body">
+          <h5 class="card-title">CONFIRMED CASES</h5>
+          <p class="card-text text-muted">This tile displays the number of confirmed Covid-19 cases.</p>
+          <h2 class="text-primary">{{totalConfirmed}}</h2>
+        </div>
+      </div>
+    </div>
+    <div class="col-sm-4">
+      <div class="card border border-success text-center">
+        <div class="card-body">
+          <h5 class="card-title ">RECOVERED CASES</h5>
+          <p class="card-text text-muted">This tile displays the number of recovered Covid-19 patients.</p>
+        <h2 class="text-success">{{totalRecovered}}</h2>
+        </div>
+      </div>
+    </div>
+    <div class="col-sm-4">
+      <div class="card border border-danger text-center">
+        <div class="card-body">
+          <h5 class="card-title">DEATHS</h5>
+          <p class="card-text text-muted ">This tile displays the number of deaths due to Covid-19.</p>
+          <h2 class="text-danger">{{totalDeaths}}</h2>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+
+  <!--<app-dashboard [scope]="'Pass country name here'" [data]="countryData"></app-dashboard>-->
+
+  <hr>
+  <!--<div class="row">
+    <app-datewise-table  [selectedData]="selectedCountryData"></app-datewise-table>
+    <app-google-chart class="col-sm-6"></app-google-chart>
+  </div>-->
+  <div class="row">
+    <div >
+      <table class="table" style="margin-top: 50px;">
+        <thead>
+          <tr>
+            <th scope="col">DAY</th>
+            <th scope="col">DATE</th>
+            <th scope="col">CONFIRMED</th>
+            <th scope="col">RECOVERED</th>
+            <th scope="col">DEATHS</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let x of selectedCountryData; let i = index ">
+              <td>{{i+1}}</td>
+              <td>{{x.date}}</td>
+              <!--<td>{{x.country}}</td>-->
+              <td>{{x.confirmed}}</td>
+              <td>{{x.recovered}}</td>
+              <td>{{x.deaths}}</td>
+              
+            </tr>
+            
+        </tbody>
+      </table>
+    </div>
+  </div>
+  
